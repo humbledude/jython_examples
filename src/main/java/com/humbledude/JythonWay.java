@@ -12,10 +12,12 @@ import java.io.StringWriter;
  */
 public class JythonWay {
 
+    private static final String PYTHON = "python";
+
     ScriptEngine engine;
 
     public JythonWay() {
-        engine = new ScriptEngineManager().getEngineByName("python");
+        engine = new ScriptEngineManager().getEngineByName(PYTHON);
     }
 
     public void run(String scriptPath) throws FileNotFoundException, ScriptException {
