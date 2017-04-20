@@ -12,22 +12,19 @@ import java.io.StringWriter;
  */
 public class JythonWay {
 
-    private String scriptPath;
+    ScriptEngine engine;
 
-    public JythonWay(String scriptPath) {
-        this.scriptPath = scriptPath;
+    public JythonWay() {
+        engine = new ScriptEngineManager().getEngineByName("python");
     }
 
-    public void run() throws FileNotFoundException, ScriptException {
+    public void run(String scriptPath) throws FileNotFoundException, ScriptException {
 
-        StringWriter writer = new StringWriter();
-        ScriptEngineManager manager = new ScriptEngineManager();
         ScriptContext context = new SimpleScriptContext();
-
+        StringWriter writer = new StringWriter();
         context.setWriter(writer);
-        ScriptEngine engine = manager.getEngineByName("python");
-        engine.eval(new FileReader(scriptPath), context);
 
+        engine.eval(new FileReader(scriptPath), context);
         System.out.println(writer.toString());
     }
 

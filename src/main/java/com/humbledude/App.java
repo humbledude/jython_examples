@@ -10,8 +10,8 @@ public class App {
 
     public static void main(String args[]) throws FileNotFoundException, ScriptException {
 
-        JythonWay jythonWay = new JythonWay("src/main/python/HelloWorld.py");
-        jythonWay.run();
+        JythonWay jythonWay = new JythonWay();
+        jythonWay.run("src/main/python/HelloWorld.py");
 
     }
 }
